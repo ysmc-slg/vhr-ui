@@ -85,7 +85,6 @@ service.interceptors.response.use(
    }
    if (code === 401) {
      if (!isReloginShow) {
-       console.log('过期了')
        isReloginShow = true;
        MessageBox.confirm('登录状态已过期，您可以继续留在该页面，或者重新登录', '系统提示', {
          confirmButtonText: '重新登录',
@@ -117,7 +116,6 @@ service.interceptors.response.use(
      })
      return Promise.reject('error')
    } else {
-     console.log(res.data)
      return res.data
    }
   },
