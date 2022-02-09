@@ -50,14 +50,8 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo().then(res => {
-          const {user} = res.user
-          const avatar = null
-          
-          if(res.user.avatar){
-            avatar = user.avatar == process.env.VUE_APP_BASE_API + user.avatar;
-          }
-          //avatar = require("@/assets/images/profile.jpg");
-          console.log(avatar)
+          const {user} = {user : res.user}
+          const avatar = user.avatar == "" ? require("@/assets/images/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
           // 验证返回的 roles 是否是一个非空数组
           if(res.roles && res.roles.length > 0){
             commit('SET_ROLES',res.roles)
@@ -67,7 +61,7 @@ const user = {
           }
           commit('SET_NAME', user.userName)
           commit('SET_AVATAR', avatar)
-
+          
           resolve(res)
         }).catch(error => {
           reject(error)
