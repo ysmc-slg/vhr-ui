@@ -4,7 +4,7 @@
     <div class="rightPanel">
       <div class="rightPanel-items">
         <slot />
-      </div>
+      </div> 
     </div>
   </div>
 </template>
@@ -27,9 +27,11 @@ export default {
   computed: {
     show: {
       get() {
+        console.log('get')
         return this.$store.state.settings.showSettings
       },
       set(val) {
+         console.log('set')
         this.$store.dispatch('settings/changeSetting', {
           key: 'showSettings',
           value: val
@@ -42,6 +44,7 @@ export default {
   },
   watch: {
     show(value) {
+      console.log(value)
       if (value && !this.clickNotClose) {
         this.addEventClick()
       }

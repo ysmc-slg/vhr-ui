@@ -36,7 +36,6 @@ const permission = {
   actions: {
     // 生成路由
     GenerateRoutes({ commit }) {
-      console.log('进入了路由')
       return new Promise(resolve => {
         // 向后端请求路由数据
         getRouters().then(res => {
@@ -114,6 +113,7 @@ function filterChildren(childrenMap, lastRouter = false) {
 export function filterDynamicRoutes(routes) {
   const res = []
   routes.forEach(route => {
+    // console.log(route.permissions)
     if (route.permissions) {
       if (auth.hasPermiOr(route.permissions)) {
         res.push(route)

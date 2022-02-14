@@ -81,6 +81,7 @@ export default {
           }
           childrenMenus.push(router.children[item]);
         }
+        // console.log(childrenMenus)
       });
       return constantRoutes.concat(childrenMenus);
     },
@@ -99,6 +100,7 @@ export default {
         }
       }
       var routes = this.activeRoutes(activePath);
+      console.log(routes)
       if (routes.length === 0) {
         activePath = this.currentIndex || this.defaultRouter()
         this.activeRoutes(activePath);
@@ -152,6 +154,8 @@ export default {
       if (this.childrenMenus && this.childrenMenus.length > 0) {
         this.childrenMenus.map((item) => {
           if (key == item.parentPath || (key == "index" && "" == item.path)) {
+            // console.log(key)
+            // console.log(item)
             routes.push(item);
           }
         });

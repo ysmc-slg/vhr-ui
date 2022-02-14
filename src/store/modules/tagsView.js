@@ -174,6 +174,7 @@ const actions = {
     })
   },
   delAllCachedViews({ commit, state }) {
+    console.log("delAllCachedViews")
     return new Promise(resolve => {
       commit('DEL_ALL_CACHED_VIEWS')
       resolve([...state.cachedViews])

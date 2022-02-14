@@ -2,19 +2,24 @@ import Cookies from 'js-cookie'
 
 const state = {
   sidebar: {
+    // 导航栏的收缩的状态，true打开，false关闭
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
   },
-  device: 'desktop'
+  device: 'desktop',
+  size: Cookies.get('size') || 'medium' 
 }
 
 const mutations = {
   TOGGLE_SIDEBAR: state => {
+    // console.log('之前',state.sidebar.opened)
     state.sidebar.opened = !state.sidebar.opened
     state.sidebar.withoutAnimation = false
     if (state.sidebar.opened) {
+      // console.log('opened',state.sidebar.opened)
       Cookies.set('sidebarStatus', 1)
     } else {
+      // console.log('opened',state.sidebar.opened)
       Cookies.set('sidebarStatus', 0)
     }
   },

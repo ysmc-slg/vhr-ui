@@ -20,7 +20,7 @@ export default {
         { label: 'Medium', value: 'medium' },
         { label: 'Small', value: 'small' },
         { label: 'Mini', value: 'mini' }
-      ]
+      ] 
     }
   },
   computed: {
@@ -34,7 +34,7 @@ export default {
       this.$store.dispatch('app/setSize', size)
       this.refreshView()
       this.$message({
-        message: 'Switch Size Success',
+        message: '更新成功',
         type: 'success'
       })
     },

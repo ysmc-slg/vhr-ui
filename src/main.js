@@ -13,7 +13,7 @@ import store from './store'
 import router from './router'
 import plugins from './plugins' // plugins
 
-import '@/icons' // icon
+import './assets/icons' // icon
 import '@/permission' // permission control
 
 

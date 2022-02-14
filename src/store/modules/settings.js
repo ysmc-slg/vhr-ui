@@ -1,7 +1,7 @@
 import defaultSettings from '@/settings'
 
 const { sideTheme, showSettings, topNav, tagsView, fixedHeader, sidebarLogo, dynamicTitle } = defaultSettings
-
+// 从本地缓存中读取配置
 const storageSetting = JSON.parse(localStorage.getItem('layout-setting')) || ''
 const state = {
   title: '',
@@ -10,7 +10,7 @@ const state = {
   sideTheme: storageSetting.sideTheme || sideTheme,
   // 是否点击布局配置 默认 false
   showSettings: showSettings,
-  // 是否显示顶部导航 默认false
+  // 是否显示顶部导航 默认false,如果本地有缓存就用缓存的
   topNav: storageSetting.topNav === undefined ? topNav : storageSetting.topNav,
   // 是否显示 tagsView 默认 true
   tagsView: storageSetting.tagsView === undefined ? tagsView : storageSetting.tagsView,
@@ -22,7 +22,7 @@ const state = {
   dynamicTitle: storageSetting.dynamicTitle === undefined ? dynamicTitle : storageSetting.dynamicTitle
 } 
 const mutations = { 
-  CHANGE_SETTING: (state, { key, value }) => { 
+  CHANGE_SETTING: (state, { key, value }) => {  
     if (state.hasOwnProperty(key)) {
       state[key] = value
     }

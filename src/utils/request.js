@@ -93,7 +93,7 @@ service.interceptors.response.use(
        }
      ).then(() => {
        isReloginShow = false;
-       store.dispatch('LogOut').then(() => {
+       store.dispatch('Logout').then(() => {
          // 如果是登录页面不需要重新加载
          if (window.location.hash.indexOf("#/login") != 0) {
            location.href = '/index';

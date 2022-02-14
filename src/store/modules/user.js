@@ -51,7 +51,7 @@ const user = {
       return new Promise((resolve, reject) => {
         getInfo().then(res => {
           const {user} = {user : res.user}
-          const avatar = user.avatar == "" ? require("@/assets/images/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
+          const avatar = user.avatar == null ? require("@/assets/images/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
           // 验证返回的 roles 是否是一个非空数组
           if(res.roles && res.roles.length > 0){
             commit('SET_ROLES',res.roles)
